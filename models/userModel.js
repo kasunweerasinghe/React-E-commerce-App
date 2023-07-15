@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
-      trim: true, //remove white spaces
+      trim: true,
     },
     email: {
       type: String,
@@ -21,6 +21,14 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     address: {
+      type: String,
+      required: true,
+    },
+    answer: {
+      type: String,
+      required: true,
+    },
+    answer: {
       type: String,
       required: true,
     },
