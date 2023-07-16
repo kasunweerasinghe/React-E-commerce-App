@@ -41,7 +41,7 @@ const CreateCategory = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error('Something wwent wrong in getting catgeory');
+      toast.error('Something went wrong in getting category');
     }
   };
 
@@ -70,6 +70,7 @@ const CreateCategory = () => {
       toast.error('Something went wrong');
     }
   };
+
   //delete category
   const handleDelete = async (pId) => {
     try {
@@ -77,18 +78,19 @@ const CreateCategory = () => {
         `/api/v1/category/delete-category/${pId}`
       );
       if (data.success) {
-        toast.success(`category is deleted`);
+        toast.success(`Category is Deleted`);
 
         getAllCategory();
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error('Somtihing went wrong');
+      toast.error('Something went wrong');
     }
   };
+
   return (
-    <Layout title={'Dashboard - Create Category'}>
+    <Layout>
       <div className="container-fluid m-3 p-3">
         <div className="row">
           <div className="col-md-3">
