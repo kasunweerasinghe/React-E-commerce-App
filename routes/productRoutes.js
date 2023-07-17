@@ -1,34 +1,35 @@
-import express from 'express';
+import express from "express";
 import {
   createProductController,
   deleteProductController,
   getProductController,
   getSingleProductController,
+  productCategoryController,
   productCountController,
   productFiltersController,
   productListController,
   productPhotoController,
-  updateProductController,
-  searchProductController,
   realtedProductController,
-  productCategoryController,
-} from '../controllers/productController.js';
-import { isAdmin, requireSignIn } from '../middlewares/authMiddleware.js';
-import formidable from 'express-formidable';
+  searchProductController,
+  updateProductController,
+} from "../controllers/productController.js";
+import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
+import formidable from "express-formidable";
 
 const router = express.Router();
 
 //routes
 router.post(
-  '/create-product',
+  "/create-product",
   requireSignIn,
   isAdmin,
   formidable(),
   createProductController
 );
+
 //routes
 router.put(
-  '/update-product/:pid',
+  "/update-product/:pid",
   requireSignIn,
   isAdmin,
   formidable(),
@@ -36,35 +37,33 @@ router.put(
 );
 
 //get products
-router.get('/get-product', getProductController);
+router.get("/get-product", getProductController);
 
 //single product
-router.get('/get-product/:slug', getSingleProductController);
+router.get("/get-product/:slug", getSingleProductController);
 
 //get photo
-router.get('/product-photo/:pid', productPhotoController);
+router.get("/product-photo/:pid", productPhotoController);
 
-//delete product
-router.delete('/delete-product/:pid', deleteProductController);
+//delete rproduct
+router.delete("/delete-product/:pid", deleteProductController);
 
 //filter product
-router.post('/product-filters', productFiltersController);
+router.post("/product-filters", productFiltersController);
 
 //product count
-router.get('/product-count', productCountController);
+router.get("/product-count", productCountController);
 
 //product per page
-router.get('/product-list/:page', productListController);
+router.get("/product-list/:page", productListController);
 
 //search product
-router.get('/search/:keyword', searchProductController);
+router.get("/search/:keyword", searchProductController);
 
 //similar product
-router.get('/related-product/:pid/:cid', realtedProductController);
+router.get("/related-product/:pid/:cid", realtedProductController);
 
 //category wise product
-router.get('/product-category/:slug', productCategoryController);
-
-
+router.get("/product-category/:slug", productCategoryController);
 
 export default router;

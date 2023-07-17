@@ -1,13 +1,14 @@
-import productModel from "../models/productModel.js";
-import categoryModel from "../models/categoryModel.js";
-import fs from "fs";
-import slugify from "slugify";
+import productModel from '../models/productModel.js';
+import categoryModel from '../models/categoryModel.js';
+import fs from 'fs';
+import slugify from 'slugify';
+
 export const createProductController = async (req, res) => {
   try {
     const { name, description, price, category, quantity, shipping } =
       req.fields;
     const { photo } = req.files;
-    //validation
+    //alidation
     switch (true) {
       case !name:
         return res.status(500).send({ error: 'Name is Required' });
@@ -220,7 +221,7 @@ export const productCountController = async (req, res) => {
 // product list base on page
 export const productListController = async (req, res) => {
   try {
-    const perPage = 2;
+    const perPage = 6;
     const page = req.params.page ? req.params.page : 1;
     const products = await productModel
       .find({})

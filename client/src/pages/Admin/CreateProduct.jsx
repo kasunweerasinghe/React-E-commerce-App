@@ -27,7 +27,7 @@ const CreateProduct = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error('Something Went wrong in getting Category');
+      toast.error('Something wwent wrong in getting catgeory');
     }
   };
 
@@ -40,30 +40,31 @@ const CreateProduct = () => {
     e.preventDefault();
     try {
       const productData = new FormData();
-      productData.append('name', name);
-      productData.append('description', description);
-      productData.append('price', price);
-      productData.append('quantity', quantity);
-      productData.append('photo', photo);
-      productData.append('category', category);
+      productData.append("name", name);
+      productData.append("description", description);
+      productData.append("price", price);
+      productData.append("quantity", quantity);
+      productData.append("photo", photo);
+      productData.append("category", category);
       const { data } = axios.post(
-        '/api/v1/product/create-product',
+        "/api/v1/product/create-product",
         productData
       );
       if (data?.success) {
         toast.error(data?.message);
       } else {
-        toast.success('Product Created Successfully');
-        navigate('/dashboard/admin/products');
+        toast.success("Product Created Successfully");
+        navigate("/dashboard/admin/products");
       }
     } catch (error) {
       console.log(error);
-      toast.error('something went wrong');
+      toast.error("something went wrong");
     }
   };
+  
 
   return (
-    <Layout title={'Dashboard - Create Product'}>
+    <Layout>
       <div className="container-fluid m-3 p-3">
         <div className="row">
           <div className="col-md-3">
