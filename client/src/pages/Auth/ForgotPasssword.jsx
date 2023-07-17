@@ -33,6 +33,7 @@ const ForgotPasssword = () => {
       toast.error('Something went wrong');
     }
   };
+
   return (
     <Layout>
       <div className="form-container ">
