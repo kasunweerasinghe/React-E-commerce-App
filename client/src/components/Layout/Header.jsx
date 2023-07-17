@@ -20,6 +20,7 @@ const Header = () => {
     localStorage.removeItem('auth');
     toast.success('Logout Successfully');
   };
+  
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
