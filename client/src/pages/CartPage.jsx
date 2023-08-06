@@ -67,7 +67,8 @@ const CartPage = () => {
                     className="card-img-top"
                     alt={p.name}
                     width="100px"
-                    height={'100px'}
+                    // height={'100px'}
+              
                   />
                 </div>
                 <div className="col-md-8">
@@ -120,7 +121,7 @@ const CartPage = () => {
                       })
                     }
                   >
-                    Plase Login to checkout
+                    Please Login to checkout
                   </button>
                 )}
               </div>
